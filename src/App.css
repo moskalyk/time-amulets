@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+.title {
+  font-family: 'Orbitron';
+}
+
+p {
+  font-family: 'Abel', sans-serif;
+}
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.invert-image:hover {
+  /* Invert the colors of the image on hover */
+  filter: invert(100%);
+}
+
+.image-grid {
+  cursor: pointer;
+  width: 700px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Creates 3 columns */
+  grid-gap: 40px; /* Adjust the gap between images */
+}
+img {
+  border-radius: 150px;
+
+}
+
+.image-item img {
+  width: 100%; /* Make images expand to fill their container */
+  height: auto; /* Keep the original aspect ratio */
+  display: block; /* Remove extra space beneath the image */
+}
+
+@keyframes dots {
+  0% {
+    content: "";
+  }
+  20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60% {
+    content: "...";
+  }
+  80%{
+    content: "..";
+  }
+  90% {
+    content: ".";
+  }
+  100% {
+    content: "";
+  }
+}
+
+.loading-dots {
+  display: inline-block;
+  position: relative;
+  font-size: 24px; /* Adjust size as needed */
+}
+
+.loading-dots::after {
+  content: "";
+  animation: dots 1.5s infinite steps(1, end);
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: bottom;
+}
+
+body {
+  background: lightgrey;
+}
+
+@keyframes rotate-gear {
+  from {
+      transform: rotate(0);
+  }
+  to {
+      transform: rotate(360deg);
+  }
+}
+
+.loader-example {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  display: block;
+  height: 90vmin;
+  width: 90vmin;
+}
+
+.gear-A {
+  animation: rotate-gear 21176ms linear infinite;
+}
+
+.gear-B {
+  animation: rotate-gear 10000ms linear infinite;
+}

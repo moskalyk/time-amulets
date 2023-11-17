@@ -1,0 +1,27 @@
+import "@fluencelabs/aqua-lib/builtin.aqua"
+
+import Op, Debug from "@fluencelabs/aqua-lib/builtin.aqua"
+import Spell from "@fluencelabs/spell/spell_service.aqua"
+
+service TimeAmulet("timeAmulet"):
+    tick()
+
+service PeerService("peerService"):
+    peers() -> []PeerId
+
+func spell():
+    
+    -- example to call a function on a js fluence peer
+    peer_id = "12D3KooWSiFgihj5CKEwJDHs9weKwbjgZsGJEnjYKaWFZ61rBF1A"
+    relay="12D3KooWFbasz6SnGxhPq3KWn8KgNW4asNKskxR5JizMdszM4KCN"
+
+    on peer_id:
+        peers <- PeerService.peers()
+        for peer <- peers:
+            on peer via relay:
+                TimeAmulet.tick()
+                
+    msg = "Spell is working"
+    str <- Debug.stringify(msg)
+    Spell "worker-spell"
+    Spell.list_push_string("logs", str)

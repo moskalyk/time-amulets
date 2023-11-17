@@ -1,0 +1,43 @@
+{
+  "name": "boots",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "0xsequence": "^1.2.9",
+    "@0xsequence/design-system": "^1.0.19",
+    "@0xsequence/indexer": "^1.4.1",
+    "@0xsequence/kit": "^1.0.2",
+    "@0xsequence/kit-connectors": "^1.0.2",
+    "@fluencelabs/js-client": "^0.1.7",
+    "@libp2p/crypto": "^2.0.8",
+    "@libp2p/interface": "^0.1.6",
+    "@libp2p/peer-id-factory": "^3.0.8",
+    "@openzeppelin/contracts": "^5.0.0",
+    "bs58": "^5.0.0",
+    "ethers": "5.7.2",
+    "js-base64": "^3.7.5",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "viem": "^1.18.8",
+    "wagmi": "^1.4.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5"
+  }
+}

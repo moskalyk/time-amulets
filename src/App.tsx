@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import { ethers } from 'ethers'
 
-import { fromBase64Sk, KeyPair } from "./keypair/index.js";
+import { KeyPair } from "./keypair/index.js";
 
 import { Fluence } from '@fluencelabs/js-client'
 import { registerTimeAmulet } from './main.js'
@@ -39,7 +37,6 @@ const nodes = [
   }
 ]
 
-const wait = async (ms: number) => new Promise((res) => setTimeout(res, ms))
 let timer = 0;
 let multiplier = 1;
 let isOn = false;
@@ -48,10 +45,10 @@ let interval: any;
 function App() {
   const { setOpenConnectModal } = useOpenConnectModal()
   const [peerId, setPeerId] = useState<any>('')
-  const [hidden, setHidden] = useState<any>(false)
+  const [_, setHidden] = useState<any>(false)
   const [tokenID, setTokenID] = useState<any>(0)
   const { data: walletClient } = useWalletClient({chainId: 8453})
-  const { address, connector, isConnected } = useAccount()
+  const { address } = useAccount()
   const { disconnect } = useDisconnect()
 
   const images = [
@@ -195,7 +192,6 @@ function App() {
   }
 
   const connectFluence = async (keypair: any) => {
-    const peerIds = nodes.map(({ peerId } : any) => peerId);
     try{
       await Fluence.connect(nodes[0].multiaddr, {debug: {printParticleId: true}, keyPair: {type: 'Ed25519', source: new Uint8Array(Object.values(keypair.privateKey._publicKey))}});
       console.log('connected ', (await Fluence.getClient()).getPeerId())
